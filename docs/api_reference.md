@@ -188,7 +188,7 @@ PyPerformance manages memory efficiently:
 
 | PyPerformance Version | Python Versions | Features |
 |----------------------|-----------------|----------|
-| 0.1.0+ | 3.6+ | All current features |
+| 0.1.0+ | 3.9+ | All current features |
 
 ## Limitations
 

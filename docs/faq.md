@@ -40,8 +40,8 @@ Production overhead is typically <0.1% for reasonable function execution times.
 
 ### What Python versions are supported?
 
-PyPerformance supports Python 3.6 and newer. We test on:
-- Python 3.6, 3.7, 3.8, 3.9, 3.10, 3.11
+PyPerformance supports Python 3.9 and newer. We test on:
+- Python 3.9, 3.10, 3.11, 3.12
 - Linux, macOS, and Windows
 - CPython (other implementations not tested)
 
@@ -55,7 +55,7 @@ No. PyPerformance uses only Python's standard library, specifically:
 ### Why can't I install PyPerformance?
 
 **Common solutions:**
-1. **Check Python version:** `python --version` (must be 3.6+)
+1. **Check Python version:** `python --version` (must be 3.9+)
 2. **Update pip:** `pip install --upgrade pip`
 3. **Use virtual environment:** Avoid system-wide installation conflicts
 4. **Check network:** Firewall might block PyPI access

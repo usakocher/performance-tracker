@@ -1,12 +1,16 @@
 import tracemalloc
 from time import perf_counter, sleep
 from threading import local
+from typing import Any, Callable, TypeVar, Union
+
+# Type variable for function decoration
+F = TypeVar('F', bound=Callable[..., Any])
 
 # Global storage for performance data
-performance_stats = {}
+performance_stats: dict[str, dict[str, Any]] = {}
 _local = local()
 
-def _init_function_stats(func_name):
+def _init_function_stats(func_name: str) -> None:
     """Initialize stats for a function if not exists"""
     if func_name not in performance_stats:
         performance_stats[func_name] = {
@@ -22,7 +26,8 @@ def _init_function_stats(func_name):
             'failure_count': 0
         }
 
-def _record_function_stats(func_name, duration, memory_used, memory_peak, success):
+def _record_function_stats(func_name: str, duration: float, memory_used: float, 
+                          memory_peak: float, success: bool) -> None:
     """Record performance data for a function call"""
     stats = performance_stats[func_name]
     
@@ -43,9 +48,10 @@ def _record_function_stats(func_name, duration, memory_used, memory_peak, succes
     else:
         stats['failure_count'] += 1
 
-def performance_monitor(track_recursion=True, track_memory=True, verbose=True):
-    def decorator(func):
-        def wrapper(*args, **kwargs):
+def performance_monitor(track_recursion: bool = True, track_memory: bool = True, 
+                       verbose: bool = True) -> Callable[[F], F]:
+    def decorator(func: F) -> F:
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             func_name = func.__name__
             
             # Initialize stats for this function
@@ -62,6 +68,7 @@ def performance_monitor(track_recursion=True, track_memory=True, verbose=True):
                     setattr(_local, f"_recursive_count_{func_name}", 0)
                     
                     # Memory tracking setup for top-level call
+                    start_memory = 0.0
                     if track_memory:
                         if not tracemalloc.is_tracing():
                             tracemalloc.start()
@@ -113,6 +120,7 @@ def performance_monitor(track_recursion=True, track_memory=True, verbose=True):
             else:
                 # Simple mode - time and track memory for every call
                 # Memory tracking setup
+                start_memory = 0.0
                 if track_memory:
                     if not tracemalloc.is_tracing():
                         tracemalloc.start()
@@ -153,10 +161,10 @@ def performance_monitor(track_recursion=True, track_memory=True, verbose=True):
                         print(f"Function {func_name} {status} in {duration:.4f} seconds{memory_info} (called {performance_stats[func_name]['call_count']} {times_text})")
                 
                 return result
-        return wrapper
+        return wrapper  # type: ignore
     return decorator
 
-def show_performance_report():
+def show_performance_report() -> None:
     """Display a comprehensive performance report for all monitored functions"""
     if not performance_stats:
         print("No performance data collected yet.")
@@ -193,13 +201,13 @@ def show_performance_report():
             print(f"  Average Peak: {avg_peak:.2f} MB")
             print(f"  Max Peak: {stats['max_memory_peak']:.2f} MB")
 
-def reset_performance_stats():
+def reset_performance_stats() -> None:
     """Clear all performance statistics"""
     global performance_stats
     performance_stats.clear()
     print("Performance statistics reset.")
 
-def get_performance_stats():
+def get_performance_stats() -> dict[str, dict[str, Any]]:
     """Return raw performance statistics for custom processing"""
     return performance_stats.copy()
 

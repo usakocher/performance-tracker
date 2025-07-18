@@ -158,7 +158,7 @@ PyPerformance is designed to have minimal overhead:
 
 ## Requirements
 
-- Python 3.6+
+- Python 3.9+
 - No external dependencies (uses only standard library)
 
 ## Documentation

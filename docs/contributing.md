@@ -82,7 +82,7 @@ When reporting bugs, please include:
 **Bug Report Template:**
 ```
 **Environment:**
-- Python version: 3.9.7
+- Python version: 3.11.5
 - PyPerformance version: 0.1.0
 - OS: Ubuntu 20.04
 

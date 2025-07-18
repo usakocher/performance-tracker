@@ -367,7 +367,7 @@ benchmark_overhead(test_function)
 
 If you run benchmarks on different hardware or Python versions, please contribute results by opening an issue with:
 - Hardware specifications
-- Python version and implementation
+- Python version and implementation (must be 3.9+)
 - Operating system
 - Benchmark results using the script above
 

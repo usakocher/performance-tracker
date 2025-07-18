@@ -2,15 +2,13 @@
 
 ## Requirements
 
-PyPerformance requires Python 3.6 or higher and has no external dependencies.
+PyPerformance requires Python 3.9 or higher and has no external dependencies.
 
 ### Supported Python Versions
-- Python 3.6
-- Python 3.7  
-- Python 3.8
 - Python 3.9
 - Python 3.10
 - Python 3.11
+- Python 3.12
 
 ### Supported Operating Systems
 - Linux (all distributions)
@@ -83,4 +81,4 @@ pip install pyperformance
 
 **Python version incompatibility**
 - Check your Python version: `python --version`
-- PyPerformance requires Python 3.6 or higher
+- PyPerformance requires Python 3.9 or higher

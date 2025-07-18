@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.0] - 2025-07-16
+## [0.1.0] - 2025-01-18
 
 ### Added
 - Initial release of PyPerformance
@@ -21,9 +21,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Complete test suite
 - Documentation and examples
 
+### Changed
+- **BREAKING:** Minimum Python version requirement is 3.9+
+
 ### Features
 - `@performance_monitor()` decorator for function monitoring
 - `show_performance_report()` for aggregate statistics
 - `reset_performance_stats()` for clearing collected data
 - `get_performance_stats()` for programmatic access to data
-- Support for Python 3.6+
+- Support for Python 3.9+
+
+### Technical Notes
+- Python 3.9+ requirement enables use of modern Python features
+- Simplified CI/CD pipeline and maintenance
+- Older Python versions are no longer recommended for new projects
