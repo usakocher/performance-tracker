@@ -62,13 +62,130 @@ python -m pytest
 pre-commit run --all-files
 ```
 
+## Commit Message Guidelines
+
+We use **Conventional Commits** for consistent commit messages and automated versioning. This enables automatic changelog generation and semantic versioning.
+
+### Commit Message Format
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer(s)]
+```
+
+### Commit Types
+
+| Type | Description | Version Impact |
+|------|-------------|----------------|
+| `feat` | New features | Minor version bump |
+| `fix` | Bug fixes | Patch version bump |
+| `docs` | Documentation changes | No version bump |
+| `style` | Code style changes (formatting, etc.) | No version bump |
+| `refactor` | Code refactoring (no functional changes) | No version bump |
+| `perf` | Performance improvements | Patch version bump |
+| `test` | Adding or updating tests | No version bump |
+| `chore` | Maintenance tasks, dependency updates | No version bump |
+| `ci` | CI/CD configuration changes | No version bump |
+| `build` | Build system or dependency changes | No version bump |
+| `revert` | Reverting previous commits | Depends on reverted change |
+
+### Breaking Changes
+
+For breaking changes, add `!` after the type or add `BREAKING CHANGE:` in the footer:
+
+```bash
+feat!: require Python 3.9+ minimum version
+
+BREAKING CHANGE: Dropped support for Python 3.8 and earlier versions.
+```
+
+### Examples
+
+#### Good Commit Messages
+
+```bash
+feat: add JSON output format for performance reports
+
+fix: resolve memory tracking accuracy in recursive functions
+
+docs: update installation guide with UV examples
+
+test: add integration tests for memory monitoring
+
+perf: optimize performance data collection by 15%
+
+refactor: simplify recursion detection logic
+
+chore: update development dependencies to latest versions
+
+ci: add semantic-release workflow for automated versioning
+```
+
+#### Commit Messages with Scope
+
+```bash
+feat(monitor): add configurable output formats
+
+fix(memory): resolve leak detection false positives
+
+docs(api): add comprehensive function documentation
+
+test(integration): add multi-threading test scenarios
+```
+
+#### Commit Messages with Body
+
+```bash
+feat: add JSON export functionality
+
+Add support for exporting performance data in JSON format
+for better integration with external monitoring systems.
+Includes options for pretty-printing and custom field selection.
+
+Resolves #42
+```
+
+### Commit Message Validation
+
+We automatically validate commit messages in pull requests. If your commit message doesn't follow the conventional format, the CI will fail with helpful error messages.
+
+**To fix commit message issues:**
+
+```bash
+# If you need to change the last commit message
+git commit --amend -m "feat: your corrected message"
+
+# If you need to change multiple commits
+git rebase -i HEAD~3  # Replace 3 with number of commits to change
+```
+
 ### Development Workflow
+
+#### Creating a Feature Branch
+
+```bash
+# Start from develop
+git checkout develop
+git pull origin develop
+
+# Create feature branch
+git checkout -b feature/your-feature-name
+
+# Make changes and commit using conventional format
+git add .
+git commit -m "feat: add your new feature description"
+
+# Push and create pull request
+git push -u origin feature/your-feature-name
+```
 
 #### Daily Development Commands
 
 **With UV:**
 ```bash
-# Activate virtual environment (automatic with uv run)
 # Install/update dependencies
 uv sync --all-extras
 
@@ -109,49 +226,40 @@ flake8                                  # Lint code
 pre-commit run --all-files              # Run all quality checks
 ```
 
-#### Creating a Feature Branch
+## Release Process
 
-```bash
-# Start from develop
-git checkout develop
-git pull origin develop
+We use automated semantic versioning based on conventional commits:
 
-# Create feature branch
-git checkout -b feature/your-feature-name
+### How Releases Work
 
-# Make changes and test
-uv run pytest  # or python -m pytest
+1. **Commits to `develop`** - Normal development
+2. **PR from `develop` to `main`** - Triggers release process
+3. **Merge to `main`** - Automatic version calculation and release
+4. **Automated actions**:
+   - Analyze commits for version bump type
+   - Update version in `pyproject.toml`
+   - Generate changelog entry
+   - Create GitHub release
+   - Build and upload artifacts
 
-# Commit changes (pre-commit hooks run automatically)
-git add .
-git commit -m "Add feature: your feature description"
+### Version Bumping Rules
 
-# Push and create pull request
-git push -u origin feature/your-feature-name
-```
+| Commit Types | Version Bump | Example |
+|--------------|--------------|---------|
+| `fix`, `perf` | PATCH | 1.0.0 → 1.0.1 |
+| `feat` | MINOR | 1.0.0 → 1.1.0 |
+| `feat!`, `BREAKING CHANGE` | MAJOR | 1.0.0 → 2.0.0 |
+| `docs`, `style`, `test`, `chore` | None | No release |
 
-## Development Tools
+### Preparing for Release
 
-### Code Quality Tools
+When you're ready to release from develop to main:
 
-All tools are configured to work together and enforce consistent code style:
-
-- **Black**: Code formatting (88 character line length)
-- **isort**: Import sorting (Black-compatible profile)
-- **flake8**: Linting and style checking
-- **pre-commit**: Automated quality checks on commit
-
-### Testing Tools
-
-- **pytest**: Test runner with plugins
-- **pytest-cov**: Coverage reporting
-- **unittest**: Standard library testing (for simple tests)
-
-### Project Management
-
-- **UV**: Modern package manager (recommended)
-- **pip**: Traditional package manager (supported)
-- **pyproject.toml**: Project configuration and metadata
+1. **Ensure all commits follow conventional format**
+2. **Create PR**: `develop` → `main`
+3. **PR title should be descriptive**: "Release: Add JSON export and fix memory tracking"
+4. **Review changes and merge**
+5. **Automatic release** will be created
 
 ## Types of Contributions
 
@@ -315,9 +423,9 @@ def test_feature_name():
    uv run black --check pyperformance/ tests/
    ```
 
-3. **Update documentation** if needed
+3. **Verify commit messages** follow conventional format
 
-4. **Add changelog entry** for user-facing changes
+4. **Update documentation** if needed
 
 ### Pull Request Template
 
@@ -326,11 +434,12 @@ def test_feature_name():
 Brief description of changes
 
 ## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Documentation update
-- [ ] Performance improvement
-- [ ] Refactoring
+- [ ] Bug fix (`fix:`)
+- [ ] New feature (`feat:`)
+- [ ] Documentation update (`docs:`)
+- [ ] Performance improvement (`perf:`)
+- [ ] Refactoring (`refactor:`)
+- [ ] Breaking change (`feat!:` or `BREAKING CHANGE:`)
 
 ## Testing
 - [ ] Added tests for new functionality
@@ -339,88 +448,43 @@ Brief description of changes
 
 ## Checklist
 - [ ] Code follows style guidelines
+- [ ] Commit messages follow conventional format
 - [ ] Self-review completed
 - [ ] Documentation updated
-- [ ] Changelog updated (if needed)
 ```
 
 ### Review Process
 
 1. **Automated checks** must pass (CI/CD)
-2. **Code review** by maintainer
-3. **Testing** on different environments
-4. **Documentation review** if applicable
-5. **Merge** after approval
+2. **Commit message validation** passes
+3. **Code review** by maintainer
+4. **Testing** on different environments
+5. **Documentation review** if applicable
+6. **Merge** after approval
 
-## Project Structure
+## Development Tools
 
-Understanding the codebase:
+### Code Quality Tools
 
-```
-pyperformance/
-├── __init__.py          # Public API exports
-├── monitor.py           # Core monitoring functionality
-└── utils.py            # Utility functions
+All tools are configured to work together and enforce consistent code style:
 
-tests/
-├── test_monitor.py      # Core functionality tests
-├── test_utils.py       # Utility function tests
-└── test_integration.py  # Integration tests
+- **Black**: Code formatting (88 character line length)
+- **isort**: Import sorting (Black-compatible profile)
+- **flake8**: Linting and style checking
+- **pre-commit**: Automated quality checks on commit
 
-examples/
-├── basic_usage.py       # Simple examples
-├── web_app_example.py   # Flask integration
-└── memory_analysis.py   # Memory monitoring examples
+### Testing Tools
 
-docs/
-├── installation.md      # Setup instructions
-├── advanced_usage.md    # Complex scenarios
-├── api_reference.md     # Complete API docs
-├── contributing.md      # This file
-├── performance_benchmarks.md
-└── faq.md
-```
+- **pytest**: Test runner with plugins
+- **pytest-cov**: Coverage reporting
+- **unittest**: Standard library testing (for simple tests)
 
-## Design Principles
+### Project Management
 
-When contributing, keep these principles in mind:
-
-### Simplicity
-- Prefer simple solutions over complex ones
-- Minimize configuration required
-- Clear, obvious APIs
-
-### Performance
-- Minimal overhead when monitoring is disabled
-- Efficient data structures
-- No unnecessary allocations
-
-### Reliability
-- Graceful error handling
-- Thread-safe operations
-- Backward compatibility
-
-### Developer Experience
-- Clear error messages
-- Comprehensive documentation
-- Runnable examples
-
-## Release Process
-
-### Versioning
-
-We use [Semantic Versioning](https://semver.org/):
-- **MAJOR**: Breaking changes
-- **MINOR**: New features, backward compatible
-- **PATCH**: Bug fixes, backward compatible
-
-### Release Checklist
-
-1. Update version in `setup.py` and `__init__.py`
-2. Update `CHANGELOG.md`
-3. Create release tag
-4. Build and upload to PyPI
-5. Update documentation
+- **UV**: Modern package manager (recommended)
+- **pip**: Traditional package manager (supported)
+- **pyproject.toml**: Project configuration and metadata
+- **Semantic Release**: Automated versioning and releases
 
 ## Getting Help
 
@@ -444,6 +508,7 @@ Contributors are recognized in:
 - `CONTRIBUTORS.md` file
 - Release notes
 - GitHub contributors page
+- Automated changelog
 
 Significant contributors may be invited to become maintainers.
 

@@ -8,6 +8,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Automated semantic versioning with conventional commits
+  - Commit message linting for consistent format
+  - Automatic version bumping based on commit types
+  - Automated changelog generation
+  - GitHub release automation
+- Conventional commit guidelines in contributing documentation
+- Semantic release workflow for main branch
+- Version validation in CI/CD pipeline
+
+### Changed
+- Development workflow now includes conventional commit format
+- Release process automated based on commit message types
+- Contributing guide enhanced with commit message standards
+
+## [0.1.0] - 2025-01-18
+
+### Added
 - UV package manager support for faster dependency management
   - Modern pyproject.toml configuration with optional dependencies
   - UV lockfile (uv.lock) for reproducible builds
@@ -19,8 +36,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - flake8 for linting
   - Built-in hooks for file quality (trailing whitespace, YAML syntax, etc.)
 - .flake8 configuration file for consistent linting rules
+- Initial release of PyPerformance
+- Function timing with microsecond precision using perf_counter()
+- Memory usage monitoring with peak and net allocation tracking
+- Recursion-aware function monitoring
+- Comprehensive performance reporting with statistics
+- Thread-safe operation using thread-local storage
+- Configurable verbosity and feature toggles
+- Zero external dependencies
+- Complete test suite
+- Documentation and examples
 
 ### Changed
+- **BREAKING:** Minimum Python version requirement is 3.9+
 - Development workflow now uses UV commands for faster dependency resolution
 - Documentation updated to recommend UV while maintaining pip compatibility
 - Enhanced project configuration in pyproject.toml with comprehensive metadata
@@ -40,23 +68,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 10-100x faster dependency resolution and installation
 - Automatic virtual environment management
 - Better error messages and debugging
-
-## [0.1.0] - 2025-01-18
-
-### Added
-- Initial release of PyPerformance
-- Function timing with microsecond precision using perf_counter()
-- Memory usage monitoring with peak and net allocation tracking
-- Recursion-aware function monitoring
-- Comprehensive performance reporting with statistics
-- Thread-safe operation using thread-local storage
-- Configurable verbosity and feature toggles
-- Zero external dependencies
-- Complete test suite
-- Documentation and examples
-
-### Changed
-- **BREAKING:** Minimum Python version requirement is 3.9+
+- Consistent commit message format with automated validation
+- Automated release management
 
 ### Features
 - `@performance_monitor()` decorator for function monitoring
@@ -69,3 +82,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Python 3.9+ requirement enables use of modern Python features
 - Simplified CI/CD pipeline and maintenance
 - Older Python versions are no longer recommended for new projects
+- Semantic versioning enables predictable releases and upgrade paths
