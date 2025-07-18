@@ -13,7 +13,35 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Lint commits
-        uses: wagoid/commitlint-github-action@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          configFile: '.commitlintrc.json'
+          node-version: 20
+
+      - name: Install commitlint
+        run: |
+          npm install --save-dev @commitlint/config-conventional @commitlint/cli
+
+      - name: Validate commits in PR
+        run: |
+          echo "Validating commits from ${{ github.event.pull_request.base.sha }} to ${{ github.event.pull_request.head.sha }}"
+
+          # Get commits in this PR (excluding merge commits)
+          commits=$(git rev-list --no-merges ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }})
+
+          if [ -z "$commits" ]; then
+            echo "No commits to validate"
+            exit 0
+          fi
+
+          echo "Found $(echo "$commits" | wc -l) commit(s) to validate"
+
+          # Validate each commit
+          for commit in $commits; do
+            echo "Validating commit: $commit"
+            message=$(git log --format="%B" -n 1 $commit)
+            echo "Commit message:"
+            echo "$message"
+            echo "---"
+            echo "$message" | npx commitlint --verbose
+          done
