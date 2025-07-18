@@ -8,12 +8,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- UV package manager support for faster dependency management
+  - Modern pyproject.toml configuration with optional dependencies
+  - UV lockfile (uv.lock) for reproducible builds
+  - Updated GitHub Actions CI to use UV
+  - Comprehensive UV documentation in README and installation guide
 - Pre-commit hooks for automated code quality checks
   - Black for code formatting
   - isort for import sorting
   - flake8 for linting
   - Built-in hooks for file quality (trailing whitespace, YAML syntax, etc.)
 - .flake8 configuration file for consistent linting rules
+
+### Changed
+- Development workflow now uses UV commands for faster dependency resolution
+- Documentation updated to recommend UV while maintaining pip compatibility
+- Enhanced project configuration in pyproject.toml with comprehensive metadata
+- Pre-commit hooks work with UV environment
+- Contributing guide updated with UV and pip workflows
 
 ### Fixed
 - Removed unused `global performance_stats` statement in `reset_performance_stats()`
@@ -22,9 +34,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed function name conflict in web app example
 - Cleaned up f-string usage where placeholders weren't needed
 
-### Changed
-- Code formatting now enforced via pre-commit hooks
-- Development workflow now includes automated quality checks
+### Developer Experience
+- `uv sync --all-extras` replaces `pip install -r requirements-dev.txt`
+- `uv run pytest` replaces `python -m pytest`
+- 10-100x faster dependency resolution and installation
+- Automatic virtual environment management
+- Better error messages and debugging
 
 ## [0.1.0] - 2025-01-18
 

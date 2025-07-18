@@ -1,8 +1,5 @@
 # Pre-commit hooks configuration
-# See https://pre-commit.com for more information
-
 repos:
-  # Built-in hooks
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
@@ -15,27 +12,24 @@ repos:
       - id: check-case-conflict
       - id: debug-statements
 
-  # Python code formatting
   - repo: https://github.com/psf/black
     rev: 23.3.0
     hooks:
       - id: black
         language_version: python3
-        args: [--line-length=88]
 
-  # Import sorting
   - repo: https://github.com/pycqa/isort
     rev: 5.12.0
     hooks:
       - id: isort
-        args: [--profile=black, --line-length=88]
 
-  # Python linting
   - repo: https://github.com/pycqa/flake8
     rev: 6.0.0
     hooks:
       - id: flake8
 
-# Configuration for specific hooks
 default_language_version:
   python: python3.9
+
+# Use UV for hook environments (optional)
+default_install_hook_types: [pre-commit, prepare-commit-msg]

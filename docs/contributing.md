@@ -10,63 +10,148 @@ This project follows a simple code of conduct: be respectful, constructive, and 
 
 ### Development Setup
 
-1. **Fork the repository** on GitHub
-2. **Clone your fork** locally:
-   ```bash
-   git clone https://github.com/yourusername/python-performance-monitor.git
-   cd python-performance-monitor
-   ```
+#### Prerequisites
 
-3. **Create a virtual environment**:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+- Python 3.9 or higher
+- Git
+- UV (recommended) or pip
 
-4. **Install development dependencies**:
-   ```bash
-   pip install -r requirements-dev.txt
-   pip install -e .
-   ```
+#### Setup with UV (Recommended)
 
-5. **Verify the setup**:
-   ```bash
-   python -m pytest tests/
-   python -m flake8 pyperformance/
-   python -m black --check pyperformance/
-   ```
+UV provides faster dependency resolution and better virtual environment management.
+
+```bash
+# 1. Install UV (if not already installed)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 2. Fork and clone the repository
+git clone https://github.com/yourusername/python-performance-monitor.git
+cd python-performance-monitor
+
+# 3. Install all dependencies
+uv sync --all-extras
+
+# 4. Install pre-commit hooks
+uv run pre-commit install
+
+# 5. Verify setup
+uv run pytest
+uv run pre-commit run --all-files
+```
+
+#### Setup with pip (Traditional)
+
+```bash
+# 1. Fork and clone the repository
+git clone https://github.com/yourusername/python-performance-monitor.git
+cd python-performance-monitor
+
+# 2. Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -e .
+pip install -r requirements-dev.txt
+
+# 4. Install pre-commit hooks
+pre-commit install
+
+# 5. Verify setup
+python -m pytest
+pre-commit run --all-files
+```
 
 ### Development Workflow
 
-1. **Create a branch** for your feature or bug fix:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+#### Daily Development Commands
 
-2. **Make your changes** following the coding standards below
+**With UV:**
+```bash
+# Activate virtual environment (automatic with uv run)
+# Install/update dependencies
+uv sync --all-extras
 
-3. **Add or update tests** for your changes
+# Run tests
+uv run pytest                           # All tests
+uv run pytest tests/test_monitor.py     # Specific file
+uv run pytest -k test_basic_timing      # Specific test
 
-4. **Run the test suite**:
-   ```bash
-   python -m pytest tests/ -v
-   python -m pytest tests/ --cov=pyperformance
-   ```
+# Code quality
+uv run black .                          # Format code
+uv run isort .                          # Sort imports
+uv run flake8                           # Lint code
+uv run pre-commit run --all-files       # Run all quality checks
 
-5. **Check code quality**:
-   ```bash
-   python -m flake8 pyperformance/ tests/
-   python -m black pyperformance/ tests/
-   python -m isort pyperformance/ tests/
-   ```
+# Add dependencies
+uv add requests                         # Runtime dependency
+uv add --dev pytest-mock                # Development dependency
+```
 
-6. **Commit your changes**:
-   ```bash
-   git add .
-   git commit -m "Add feature: your feature description"
-   ```
+**With pip:**
+```bash
+# Activate virtual environment
+source venv/bin/activate
 
-7. **Push to your fork** and **create a pull request**
+# Install/update dependencies
+pip install -e .
+pip install -r requirements-dev.txt
+
+# Run tests
+python -m pytest                       # All tests
+python -m pytest tests/test_monitor.py # Specific file
+python -m pytest -k test_basic_timing  # Specific test
+
+# Code quality
+black .                                 # Format code
+isort .                                 # Sort imports
+flake8                                  # Lint code
+pre-commit run --all-files              # Run all quality checks
+```
+
+#### Creating a Feature Branch
+
+```bash
+# Start from develop
+git checkout develop
+git pull origin develop
+
+# Create feature branch
+git checkout -b feature/your-feature-name
+
+# Make changes and test
+uv run pytest  # or python -m pytest
+
+# Commit changes (pre-commit hooks run automatically)
+git add .
+git commit -m "Add feature: your feature description"
+
+# Push and create pull request
+git push -u origin feature/your-feature-name
+```
+
+## Development Tools
+
+### Code Quality Tools
+
+All tools are configured to work together and enforce consistent code style:
+
+- **Black**: Code formatting (88 character line length)
+- **isort**: Import sorting (Black-compatible profile)
+- **flake8**: Linting and style checking
+- **pre-commit**: Automated quality checks on commit
+
+### Testing Tools
+
+- **pytest**: Test runner with plugins
+- **pytest-cov**: Coverage reporting
+- **unittest**: Standard library testing (for simple tests)
+
+### Project Management
+
+- **UV**: Modern package manager (recommended)
+- **pip**: Traditional package manager (supported)
+- **pyproject.toml**: Project configuration and metadata
 
 ## Types of Contributions
 
@@ -181,9 +266,9 @@ We use automated tools:
 
 Run before committing:
 ```bash
-black pyperformance/ tests/
-isort pyperformance/ tests/
-flake8 pyperformance/ tests/
+uv run black pyperformance/ tests/
+uv run isort pyperformance/ tests/
+uv run flake8 pyperformance/ tests/
 ```
 
 ### Documentation Style
@@ -221,13 +306,13 @@ def test_feature_name():
 
 1. **Ensure tests pass**:
    ```bash
-   python -m pytest tests/ -v
+   uv run pytest
    ```
 
 2. **Check code quality**:
    ```bash
-   python -m flake8 pyperformance/ tests/
-   python -m black --check pyperformance/ tests/
+   uv run flake8 pyperformance/ tests/
+   uv run black --check pyperformance/ tests/
    ```
 
 3. **Update documentation** if needed
