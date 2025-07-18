@@ -34,7 +34,7 @@ PyPerformance is designed to have minimal impact on application performance:
 def fast_function():
     return sum(range(100))
 
-# Medium function 
+# Medium function
 def medium_function():
     return sum(i * i for i in range(1000))
 
@@ -70,7 +70,7 @@ Percentage:      1000% (high % due to fast baseline)
 **Medium Function (1ms baseline):**
 ```
 Unmonitored:     1.0000ms per call
-With timing:     1.0012ms per call  
+With timing:     1.0012ms per call
 Overhead:        0.0012ms (1.2μs)
 Percentage:      0.12%
 ```
@@ -79,7 +79,7 @@ Percentage:      0.12%
 ```
 Unmonitored:     10.000ms per call
 With timing:     10.001ms per call
-Overhead:        0.001ms (1.0μs)  
+Overhead:        0.001ms (1.0μs)
 Percentage:      0.01%
 ```
 
@@ -98,7 +98,7 @@ Percentage:          0.18%
 
 **Memory tracking components:**
 - `tracemalloc.get_traced_memory()`: ~3μs
-- `tracemalloc.clear_traces()`: ~2μs  
+- `tracemalloc.clear_traces()`: ~2μs
 - Memory calculations: ~3μs
 
 ### Recursion Tracking Overhead
@@ -107,7 +107,7 @@ Percentage:          0.18%
 ```
 Unmonitored:              0.015ms per call
 With recursion tracking:  0.018ms per call
-Overhead:                 0.003ms (3.0μs) 
+Overhead:                 0.003ms (3.0μs)
 Percentage:               20%
 
 Individual recursive calls: 0.001μs each
@@ -137,7 +137,7 @@ import cProfile
 def test_function():
     return sum(range(1000))
 
-# cProfile  
+# cProfile
 pr = cProfile.Profile()
 pr.enable()
 test_function()
@@ -179,7 +179,7 @@ def memory_test():
 **Results:**
 ```
 PyPerformance memory:  8.0μs overhead
-memory_profiler:       45.2μs overhead  
+memory_profiler:       45.2μs overhead
 Advantage:             5.7x faster
 ```
 
@@ -247,7 +247,7 @@ if request_count % 1000 == 0:
     show_performance_report()
     reset_performance_stats()
 
-# Avoid: Per-request reporting  
+# Avoid: Per-request reporting
 show_performance_report()  # Too expensive
 ```
 
@@ -271,7 +271,7 @@ show_performance_report()  # Too expensive
 3. **Conditional monitoring:**
    ```python
    DEBUG = os.getenv('DEBUG', False)
-   
+
    @performance_monitor() if DEBUG else lambda f: f
    def debug_function():
        pass
@@ -297,7 +297,7 @@ show_performance_report()  # Too expensive
 ### Planned Optimizations
 
 1. **C extension for critical path:** Could reduce overhead to <0.5μs
-2. **Async-aware monitoring:** Better support for asyncio applications  
+2. **Async-aware monitoring:** Better support for asyncio applications
 3. **Sampling mode:** Monitor only percentage of calls
 4. **Binary output format:** Faster than current dictionary storage
 
@@ -326,7 +326,7 @@ from pyperformance import performance_monitor, reset_performance_stats
 
 def benchmark_overhead(func, iterations=10000):
     """Measure PyPerformance overhead"""
-    
+
     # Baseline measurement
     times = []
     for _ in range(iterations):
@@ -334,25 +334,25 @@ def benchmark_overhead(func, iterations=10000):
         func()
         end = time.perf_counter()
         times.append(end - start)
-    
+
     baseline = statistics.mean(times)
-    
+
     # With monitoring
     reset_performance_stats()
     monitored_func = performance_monitor(verbose=False)(func)
-    
+
     times = []
     for _ in range(iterations):
         start = time.perf_counter()
         monitored_func()
         end = time.perf_counter()
         times.append(end - start)
-    
+
     monitored = statistics.mean(times)
     overhead = monitored - baseline
-    
+
     print(f"Baseline:  {baseline*1000:.4f}ms")
-    print(f"Monitored: {monitored*1000:.4f}ms") 
+    print(f"Monitored: {monitored*1000:.4f}ms")
     print(f"Overhead:  {overhead*1000:.4f}ms ({overhead*1000000:.1f}μs)")
     print(f"Percentage: {(overhead/baseline)*100:.2f}%")
 

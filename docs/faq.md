@@ -84,12 +84,12 @@ class MyClass:
     @performance_monitor()
     def method(self):
         pass
-    
+
     @performance_monitor()
     @staticmethod
     def static_method():
         pass
-    
+
     @performance_monitor()
     @classmethod
     def class_method(cls):
@@ -182,7 +182,7 @@ Not directly, but you can structure your code:
 def load_data():
     return expensive_data_loading()
 
-@performance_monitor(track_memory=True) 
+@performance_monitor(track_memory=True)
 def process_data(data):
     return expensive_processing(data)
 ```
@@ -329,7 +329,7 @@ def test_function_performance():
     def test_func():
         # Function under test
         pass
-    
+
     # Run and assert performance criteria
     test_func()
     stats = get_performance_stats()['test_func']
@@ -388,7 +388,7 @@ You can combine data manually:
 run_functions()
 stats1 = get_performance_stats()
 
-# Run 2  
+# Run 2
 reset_performance_stats()
 run_functions()
 stats2 = get_performance_stats()
@@ -429,7 +429,7 @@ Built-in merging is planned for a future release.
 
 Absolutely! See [contributing.md](contributing.md) for:
 - Development setup
-- Coding standards  
+- Coding standards
 - Pull request process
 - Areas needing help
 

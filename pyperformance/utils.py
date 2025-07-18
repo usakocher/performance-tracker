@@ -1,12 +1,14 @@
 """Utility functions for performance monitoring"""
 
+
 def format_memory(bytes_value):
     """Convert bytes to human readable format"""
-    for unit in ['B', 'KB', 'MB', 'GB']:
+    for unit in ["B", "KB", "MB", "GB"]:
         if bytes_value < 1024.0:
             return f"{bytes_value:.2f} {unit}"
         bytes_value /= 1024.0
     return f"{bytes_value:.2f} TB"
+
 
 def format_duration(seconds):
     """Convert seconds to human readable format"""

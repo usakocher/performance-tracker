@@ -9,7 +9,7 @@ The `@performance_monitor()` decorator accepts several parameters for customizat
 ```python
 @performance_monitor(
     track_recursion=True,    # Enable/disable recursion tracking
-    track_memory=True,       # Enable/disable memory monitoring  
+    track_memory=True,       # Enable/disable memory monitoring
     verbose=True            # Enable/disable console output
 )
 def my_function():
@@ -31,7 +31,7 @@ def factorial(n):
 
 # Output shows: "called 1 time, recursive calls: 4"
 
-# Without recursion tracking  
+# Without recursion tracking
 @performance_monitor(track_recursion=False)
 def factorial(n):
     if n <= 1:
@@ -53,7 +53,7 @@ def memory_function():
 # Output includes: "memory: 0.00MB used, 3.81MB peak"
 
 # Without memory tracking
-@performance_monitor(track_memory=False)  
+@performance_monitor(track_memory=False)
 def memory_function():
     return [i for i in range(100000)]
 
@@ -116,17 +116,17 @@ from pyperformance import get_performance_stats
 
 def generate_custom_report():
     stats = get_performance_stats()
-    
+
     print("Custom Performance Analysis")
     print("-" * 40)
-    
+
     for func_name, data in stats.items():
         if data['call_count'] > 0:
             avg_time = data['total_time'] / data['call_count']
             print(f"{func_name}:")
             print(f"  Average time: {avg_time:.4f}s")
             print(f"  Success rate: {data['success_count']/data['call_count']*100:.1f}%")
-            
+
             if data['memory_peaks']:
                 avg_memory = sum(data['memory_peaks']) / len(data['memory_peaks'])
                 print(f"  Average memory: {avg_memory:.2f}MB")
@@ -153,12 +153,12 @@ def get_data():
 def performance_dashboard():
     from pyperformance import show_performance_report
     import io, sys
-    
+
     old_stdout = sys.stdout
     sys.stdout = buffer = io.StringIO()
     show_performance_report()
     sys.stdout = old_stdout
-    
+
     return f"<pre>{buffer.getvalue()}</pre>"
 ```
 
@@ -171,17 +171,17 @@ from pyperformance import performance_monitor, reset_performance_stats, get_perf
 class TestPerformance:
     def setup_method(self):
         reset_performance_stats()
-    
+
     def test_function_performance(self):
         @performance_monitor(verbose=False)
         def test_function():
             # Function under test
             pass
-        
+
         # Run multiple times
         for _ in range(10):
             test_function()
-        
+
         # Assert performance criteria
         stats = get_performance_stats()['test_function']
         avg_time = stats['total_time'] / stats['call_count']

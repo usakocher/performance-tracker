@@ -13,7 +13,7 @@ performance_monitor(track_recursion=True, track_memory=True, verbose=True)
 
 **Parameters:**
 - `track_recursion` (bool): Enable recursion-aware monitoring. Default: `True`
-- `track_memory` (bool): Enable memory usage tracking. Default: `True`  
+- `track_memory` (bool): Enable memory usage tracking. Default: `True`
 - `verbose` (bool): Enable real-time console output. Default: `True`
 
 **Returns:**
@@ -229,7 +229,7 @@ from pyperformance import get_performance_stats
 
 def analyze_performance():
     stats = get_performance_stats()
-    
+
     for func_name, data in stats.items():
         if data['call_count'] > 0:
             avg_time = data['total_time'] / data['call_count']

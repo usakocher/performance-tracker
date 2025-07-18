@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Pre-commit hooks for automated code quality checks
+  - Black for code formatting
+  - isort for import sorting
+  - flake8 for linting
+  - Built-in hooks for file quality (trailing whitespace, YAML syntax, etc.)
+- .flake8 configuration file for consistent linting rules
+
+### Fixed
+- Removed unused `global performance_stats` statement in `reset_performance_stats()`
+- Fixed line length violations throughout codebase
+- Removed unused imports (Union from typing, request/json from Flask example)
+- Fixed function name conflict in web app example
+- Cleaned up f-string usage where placeholders weren't needed
+
+### Changed
+- Code formatting now enforced via pre-commit hooks
+- Development workflow now includes automated quality checks
+
 ## [0.1.0] - 2025-01-18
 
 ### Added

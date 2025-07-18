@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -40,8 +40,12 @@ setup(
     },
     keywords="performance monitoring profiling decorator timing memory",
     project_urls={
-        "Bug Reports": "https://github.com/yourusername/python-performance-monitor/issues",
+        "Bug Reports": (
+            "https://github.com/yourusername/python-performance-monitor/issues"
+        ),
         "Source": "https://github.com/yourusername/python-performance-monitor",
-        "Documentation": "https://github.com/yourusername/python-performance-monitor/blob/main/docs/",
+        "Documentation": (
+            "https://github.com/yourusername/python-performance-monitor/blob/main/docs/"
+        ),
     },
 )

@@ -207,10 +207,10 @@ def test_feature_name():
     """Test description explaining what is being tested"""
     # Arrange
     setup_code()
-    
+
     # Act
     result = function_under_test()
-    
+
     # Assert
     assert result == expected_value
 ```
