@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main, develop ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
 
 jobs:
   test:
@@ -16,27 +16,24 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
+    - name: Install uv
+      uses: astral-sh/setup-uv@v1
       with:
-        python-version: ${{ matrix.python-version }}
+        version: "latest"
+
+    - name: Set up Python ${{ matrix.python-version }}
+      run: uv python install ${{ matrix.python-version }}
 
     - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements-dev.txt
-        pip install -e .
+      run: uv sync --all-extras
 
     - name: Lint with flake8
       run: |
-        # Stop the build if there are Python syntax errors or undefined names
-        flake8 pyperformance tests --count --select=E9,F63,F7,F82 --show-source --statistics
-        # Exit-zero treats all errors as warnings. Line length is handled by black
-        flake8 pyperformance tests --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+        uv run flake8 pyperformance tests --count --select=E9,F63,F7,F82 --show-source --statistics
+        uv run flake8 pyperformance tests --count --exit-zero --max-complexity=10 --statistics
 
     - name: Test with pytest
-      run: |
-        pytest tests/ --cov=pyperformance --cov-report=xml --cov-report=term-missing
+      run: uv run pytest tests/ --cov=pyperformance --cov-report=xml --cov-report=term-missing
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3

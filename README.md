@@ -37,17 +37,106 @@ show_performance_report()
 
 ## Installation
 
+### Install PyPerformance
+
+**Using pip:**
 ```bash
 pip install pyperformance
 ```
 
-Or install from source:
+**Using UV (recommended):**
+```bash
+uv add pyperformance
+```
+
+### Verify Installation
+
+```python
+from pyperformance import performance_monitor
+print("PyPerformance installed successfully!")
+```
+
+## Development Setup
+
+### Quick Start with UV (Recommended)
+
+UV is a modern, fast Python package manager. It's 10-100x faster than pip and provides better dependency management.
 
 ```bash
+# 1. Install UV
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# 2. Clone and setup project
 git clone https://github.com/yourusername/python-performance-monitor.git
 cd python-performance-monitor
-pip install -e .
+
+# 3. Install all dependencies (creates virtual environment automatically)
+uv sync --all-extras
+
+# 4. Run tests to verify setup
+uv run pytest
+
+# 5. Install pre-commit hooks
+uv run pre-commit install
 ```
+
+### Traditional Setup with pip
+
+```bash
+# 1. Clone repository
+git clone https://github.com/yourusername/python-performance-monitor.git
+cd python-performance-monitor
+
+# 2. Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# 3. Install dependencies
+pip install -e .
+pip install -r requirements-dev.txt  # For development
+
+# 4. Run tests
+python -m pytest
+
+# 5. Install pre-commit hooks
+pre-commit install
+```
+
+## Development Commands
+
+### With UV
+| Task | Command |
+|------|---------|
+| Run tests | `uv run pytest` |
+| Run tests with coverage | `uv run pytest --cov=pyperformance` |
+| Format code | `uv run black .` |
+| Check formatting | `uv run black --check .` |
+| Lint code | `uv run flake8` |
+| Sort imports | `uv run isort .` |
+| Run pre-commit | `uv run pre-commit run --all-files` |
+| Add dependency | `uv add requests` |
+| Add dev dependency | `uv add --dev pytest-mock` |
+| Update dependencies | `uv sync --upgrade` |
+
+### With pip
+| Task | Command |
+|------|---------|
+| Run tests | `python -m pytest` |
+| Run tests with coverage | `python -m pytest --cov=pyperformance` |
+| Format code | `black .` |
+| Check formatting | `black --check .` |
+| Lint code | `flake8` |
+| Sort imports | `isort .` |
+| Run pre-commit | `pre-commit run --all-files` |
+
+## Why UV?
+
+- **10-100x faster** dependency resolution than pip
+- **Automatic virtual environment** management
+- **Reproducible builds** with lockfiles
+- **Modern Python packaging** standards
+- **Better error messages** and debugging
+- **Compatible** with existing pip workflows
 
 ## Features
 
@@ -161,6 +250,39 @@ PyPerformance is designed to have minimal overhead:
 - Python 3.9+
 - No external dependencies (uses only standard library)
 
+## Troubleshooting
+
+### UV Installation Issues
+
+**macOS with Homebrew:**
+```bash
+brew install uv
+```
+
+**Windows:**
+```powershell
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+**Using pip:**
+```bash
+pip install uv
+```
+
+### Common Issues
+
+**"uv command not found"**
+- Restart your terminal after installation
+- Add UV to PATH: `echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc`
+
+**Dependencies not found**
+- Make sure you're in the project directory
+- Run `uv sync --all-extras` to install all dependencies
+
+**Pre-commit not working**
+- Reinstall hooks: `uv run pre-commit install`
+- Clear cache: `uv run pre-commit clean`
+
 ## Documentation
 
 - [Installation Guide](docs/installation.md)
@@ -183,8 +305,8 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 ```bash
 git clone https://github.com/yourusername/python-performance-monitor.git
 cd python-performance-monitor
-pip install -r requirements-dev.txt
-python -m pytest tests/
+uv sync --all-extras
+uv run pytest
 ```
 
 ## License
@@ -197,4 +319,4 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and changes.
 
 ## Support
 
-If you encounter any problems or have questions, please [open an issue](https://github.com/yourusername/python-performance-monitor/issues) on GitHub.# Test
+If you encounter any problems or have questions, please [open an issue](https://github.com/yourusername/python-performance-monitor/issues) on GitHub.
