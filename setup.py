@@ -5,12 +5,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="pyperformance",
-    version="0.1.0",
+    version="1.0.0",
     author="Adam Kocher",
     description="A lightweight Python performance monitoring library",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/python-performance-monitor",
+    url="https://github.com/usakocher/python-performance-monitor",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -41,11 +41,11 @@ setup(
     keywords="performance monitoring profiling decorator timing memory",
     project_urls={
         "Bug Reports": (
-            "https://github.com/yourusername/python-performance-monitor/issues"
+            "https://github.com/usakocher/python-performance-monitor/issues"
         ),
-        "Source": "https://github.com/yourusername/python-performance-monitor",
+        "Source": "https://github.com/usakocher/python-performance-monitor",
         "Documentation": (
-            "https://github.com/yourusername/python-performance-monitor/blob/main/docs/"
+            "https://github.com/usakocher/python-performance-monitor/blob/main/docs/"
         ),
     },
 )

@@ -420,7 +420,7 @@ Built-in merging is planned for a future release.
 
 ### How can I request a feature?
 
-1. Check existing [GitHub issues](https://github.com/yourusername/python-performance-monitor/issues)
+1. Check existing [GitHub issues](https://github.com/usakocher/python-performance-monitor/issues)
 2. Open a new issue with the "feature request" template
 3. Describe your use case and proposed solution
 4. Participate in discussion and design
@@ -467,7 +467,7 @@ Check:
 
 ### Where can I get support?
 
-1. **Documentation:** Start with [docs/](https://github.com/yourusername/python-performance-monitor/tree/main/docs)
+1. **Documentation:** Start with [docs/](https://github.com/usakocher/python-performance-monitor/tree/main/docs)
 2. **GitHub Issues:** Bug reports and feature requests
 3. **GitHub Discussions:** Questions and community help
 4. **Email:** Direct contact for complex issues

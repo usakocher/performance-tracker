@@ -25,7 +25,7 @@ UV provides faster dependency resolution and better virtual environment manageme
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 2. Fork and clone the repository
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 
 # 3. Install all dependencies
@@ -43,7 +43,7 @@ uv run pre-commit run --all-files
 
 ```bash
 # 1. Fork and clone the repository
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 
 # 2. Create virtual environment
