@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/usakocher/python-performance-monitor/compare/v1.0.1...v1.0.2) (2025-07-21)
+
+
+### Bug Fixes
+
+* use personal access token for semantic-release permissions ([#8](https://github.com/usakocher/python-performance-monitor/issues/8)) ([3429fd0](https://github.com/usakocher/python-performance-monitor/commit/3429fd019f24f4c80b7f73944b82edd24c902e4e))
+
 ## [1.0.1](https://github.com/usakocher/python-performance-monitor/compare/v1.0.0...v1.0.1) (2025-07-21)
 
 
