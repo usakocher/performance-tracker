@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/usakocher/python-performance-monitor/compare/v1.0.0...v1.0.1) (2025-07-21)
+
+
+### Bug Fixes
+
+* replace placeholder URLs with actual repository information ([#6](https://github.com/usakocher/python-performance-monitor/issues/6)) ([7f7517e](https://github.com/usakocher/python-performance-monitor/commit/7f7517ef1618b0a98fa40117be74050871acea71))
+
 # 1.0.0 (2025-07-18)
 
 
