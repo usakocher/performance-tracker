@@ -67,7 +67,7 @@ UV is a modern, fast Python package manager. It's 10-100x faster than pip and pr
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 2. Clone and setup project
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 
 # 3. Install all dependencies (creates virtual environment automatically)
@@ -84,7 +84,7 @@ uv run pre-commit install
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 
 # 2. Create virtual environment
@@ -303,7 +303,7 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 ### Development Setup
 
 ```bash
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 uv sync --all-extras
 uv run pytest
@@ -319,4 +319,4 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and changes.
 
 ## Support
 
-If you encounter any problems or have questions, please [open an issue](https://github.com/yourusername/python-performance-monitor/issues) on GitHub.
+If you encounter any problems or have questions, please [open an issue](https://github.com/usakocher/python-performance-monitor/issues) on GitHub.
