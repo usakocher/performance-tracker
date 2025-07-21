@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyperformance"
-version = "0.1.0"
+version = "1.0.0"
 description = "A lightweight Python performance monitoring library"
 readme = "README.md"
 license = {text = "MIT"}
@@ -39,10 +39,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/python-performance-monitor"
-Documentation = "https://github.com/yourusername/python-performance-monitor/blob/main/docs/"
-Repository = "https://github.com/yourusername/python-performance-monitor"
-"Bug Reports" = "https://github.com/yourusername/python-performance-monitor/issues"
+Homepage = "https://github.com/usakocher/python-performance-monitor"
+Documentation = "https://github.com/usakocher/python-performance-monitor/blob/main/docs/"
+Repository = "https://github.com/usakocher/python-performance-monitor"
+"Bug Reports" = "https://github.com/usakocher/python-performance-monitor/issues"
 
 [tool.uv]
 dev-dependencies = [

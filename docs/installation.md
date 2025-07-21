@@ -42,14 +42,14 @@ poetry add pyperformance
 
 **Using UV:**
 ```bash
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 uv sync --all-extras
 ```
 
 **Using pip:**
 ```bash
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 pip install -e .
 ```
@@ -65,7 +65,7 @@ UV is a modern Python package manager that's much faster than pip and provides b
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 2. Clone repository
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 
 # 3. Install all dependencies (automatically creates virtual environment)
@@ -85,7 +85,7 @@ uv run pre-commit install
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/yourusername/python-performance-monitor.git
+git clone https://github.com/usakocher/python-performance-monitor.git
 cd python-performance-monitor
 
 # 2. Create virtual environment
@@ -228,8 +228,8 @@ uv sync --all-extras
 If you encounter issues:
 
 1. Check the [FAQ](faq.md)
-2. Search [existing issues](https://github.com/yourusername/python-performance-monitor/issues)
-3. Create a [new issue](https://github.com/yourusername/python-performance-monitor/issues/new) with:
+2. Search [existing issues](https://github.com/usakocher/python-performance-monitor/issues)
+3. Create a [new issue](https://github.com/usakocher/python-performance-monitor/issues/new) with:
    - Python version (`python --version`)
    - Operating system
    - Installation method used
