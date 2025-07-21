@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.RELEASE_TOKEN }}  # Use PAT instead of GITHUB_TOKEN
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -48,14 +48,9 @@ jobs:
       - name: Run tests
         run: uv run pytest
 
-      - name: Update version in pyproject.toml
-        run: |
-          # This will be handled by semantic-release, but we prepare the environment
-          echo "Version will be updated by semantic-release"
-
       - name: Run semantic-release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}  # Use PAT here too
         run: semantic-release
 
       - name: Build package (if new release created)

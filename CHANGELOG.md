@@ -1,3 +1,24 @@
+## [1.0.1](https://github.com/usakocher/python-performance-monitor/compare/v1.0.0...v1.0.1) (2025-07-21)
+
+
+### Bug Fixes
+
+* replace placeholder URLs with actual repository information ([#6](https://github.com/usakocher/python-performance-monitor/issues/6)) ([7f7517e](https://github.com/usakocher/python-performance-monitor/commit/7f7517ef1618b0a98fa40117be74050871acea71))
+
+# 1.0.0 (2025-07-18)
+
+
+### Bug Fixes
+
+* remove npm plugin from semantic-release config ([79c7c20](https://github.com/usakocher/python-performance-monitor/commit/79c7c20934987a442ed754993e81ed4ee6feb3c6))
+* replace broken wagoid action with reliable custom workflow ([5ebb5c9](https://github.com/usakocher/python-performance-monitor/commit/5ebb5c9df56f24c5171d63727d62cd1244fed3e9))
+* replace broken wagoid action with working custom workflow ([e7479ab](https://github.com/usakocher/python-performance-monitor/commit/e7479abcc7236d37f61eff737ebb66c1fac7474b))
+
+
+### Features
+
+* implement semantic versioning and automated releases ([fb31758](https://github.com/usakocher/python-performance-monitor/commit/fb31758be96dd82780344e94997ec4ff45ed6dfe))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
