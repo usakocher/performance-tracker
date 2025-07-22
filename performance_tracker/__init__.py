@@ -1,3 +1,21 @@
+"""
+Performance Tracker - Professional Performance Monitoring for Python Applications
+
+A lightweight, developer-friendly library that provides real-time insights into
+function execution time, memory usage, and call patterns using simple decorators.
+
+Key Features:
+    - Zero-configuration monitoring with @performance_monitor() decorator
+    - Real-time feedback and comprehensive reporting
+    - Memory leak detection and analysis
+    - Recursion-aware tracking for complex algorithms
+    - Thread-safe operation for concurrent applications
+    - Minimal performance overhead (~1-2 μs per function call)
+
+For complete documentation, visit:
+https://github.com/usakocher/python-performance-monitor
+"""
+
 from typing import TYPE_CHECKING
 
 from .monitor import (

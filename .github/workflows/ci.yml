@@ -29,11 +29,11 @@ jobs:
 
     - name: Lint with flake8
       run: |
-        uv run flake8 performance-tracker tests --count --select=E9,F63,F7,F82 --show-source --statistics
-        uv run flake8 performance-tracker tests --count --exit-zero --max-complexity=10 --statistics
+        uv run flake8 performance_tracker tests --count --select=E9,F63,F7,F82 --show-source --statistics
+        uv run flake8 performance_tracker tests --count --exit-zero --max-complexity=10 --statistics
 
     - name: Test with pytest
-      run: uv run pytest tests/ --cov=performance-tracker --cov-report=xml --cov-report=term-missing
+      run: uv run pytest tests/ --cov=performance_tracker --cov-report=xml --cov-report=term-missing
 
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v3
