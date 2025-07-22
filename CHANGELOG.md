@@ -1,3 +1,149 @@
+# [2.0.0](https://github.com/usakocher/performance-tracker/compare/v1.0.2...v2.0.0) (2025-07-22)
+
+
+### Features
+
+* rename package from pyperformance to performance-tracker ([#12](https://github.com/usakocher/performance-tracker/issues/12)) ([e9eb72d](https://github.com/usakocher/performance-tracker/commit/e9eb72d1f8aeabad3a5d4d573a2558044d6569db))
+
+
+### Release
+
+* Rename to performance-tracker v2.0.0 ([#13](https://github.com/usakocher/performance-tracker/issues/13)) ([4ee50e1](https://github.com/usakocher/performance-tracker/commit/4ee50e13385a0cb4af0749dc8157414a4629f627))
+
+
+### BREAKING CHANGES
+
+* in the commit message.
+
+## Expected Semantic Release Behavior
+- Semantic-release will analyze the `feat:` commit with `BREAKING
+CHANGE:` footer
+- Calculate MAJOR version bump to 2.0.0
+- Update CHANGELOG.md with breaking change details
+- Create GitHub release with migration notes
+- Update pyproject.toml version automatically
+
+## Breaking Changes
+- **Package name changed**: Users must update from `pip install
+pyperformance` to `pip install performance-tracker`
+- **Import statements changed**: Users must update from `from
+pyperformance import ...` to `from performance_tracker import ...`
+
+## Migration Guide
+For existing users:
+```bash
+# Uninstall old package
+pip uninstall pyperformance
+
+# Install new package
+pip install performance-tracker
+
+# Update import statements in code
+# OLD: from pyperformance import performance_monitor
+# NEW: from performance_tracker import performance_monitor
+* Package name changed from pyperformance to
+performance-tracker to avoid naming conflict with official Python
+benchmarking suite. Users must update imports from 'pyperformance' to
+'performance_tracker'.
+
+## Summary
+
+Brief description of what this PR accomplishes.
+
+## Type of Change
+
+Select the type of change (check all that apply):
+
+- [ ] Bug fix (`fix:`) - non-breaking change that fixes an issue
+- [x] New feature (`feat:`) - non-breaking change that adds
+functionality
+- [x] Breaking change (`feat!:` or `BREAKING CHANGE:`) - fix or feature
+that would cause existing functionality to not work as expected
+- [x] Documentation update (`docs:`) - changes to documentation only
+- [ ] Code style (`style:`) - formatting, missing semi-colons, etc; no
+production code change
+- [ ] Code refactoring (`refactor:`) - refactoring production code, eg.
+renaming a variable
+- [ ] Performance improvement (`perf:`) - code change that improves
+performance
+- [ ] Test update (`test:`) - adding missing tests, refactoring tests;
+no production code change
+- [ ] Chore (`chore:`) - updating grunt tasks etc; no production code
+change
+- [ ] CI/CD (`ci:`) - changes to CI configuration files and scripts
+
+## Changes Made
+
+Describe the changes in detail:
+
+- Rename package directory from pyperformance to performance_tracker
+- Update pyproject.toml name to performance-tracker
+- Update all import statements throughout codebase
+- Update documentation and examples with new package name
+- Update installation instructions in README and docs
+
+## Testing
+
+Describe how you tested your changes:
+
+- [x] Unit tests added/updated
+- [x] Integration tests added/updated
+- [x] Manual testing performed
+- [x] All existing tests pass
+- [x] Performance impact assessed (if applicable)
+
+### Test Details
+
+```bash
+# Commands used to test
+uv run pytest
+uv run pytest --cov=pyperformance
+```
+
+## Documentation
+
+- [x] Code is self-documenting with clear variable/function names
+- [x] Docstrings added/updated for public functions
+- [x] README updated (if needed)
+- [x] API documentation updated (if needed)
+- [x] Changelog will be updated automatically
+
+## Checklist
+
+Before submitting this PR, please make sure:
+
+- [x] I have read and followed the contributing guidelines
+- [x] I have performed a self-review of my code
+- [x] I have commented my code, particularly in hard-to-understand areas
+- [x] I have made corresponding changes to the documentation
+- [x] My changes generate no new warnings
+- [x] I have added tests that prove my fix is effective or that my
+feature works
+- [x] New and existing unit tests pass locally with my changes
+- [x] Any dependent changes have been merged and published
+
+## Conventional Commits
+
+This PR follows conventional commit format:
+
+- [x] Commit messages follow the conventional format: `type:
+description`
+- [x] Breaking changes are marked with `!` or `BREAKING CHANGE:` footer
+- [x] Commit messages are descriptive and explain the "what" and "why"
+
+## Related Issues
+
+Closes #
+Related to #
+
+## Screenshots (if applicable)
+
+Add screenshots to help explain your changes.
+
+## Additional Notes
+
+Add any other context about the pull request here.
+
 ## [1.0.2](https://github.com/usakocher/performance-tracker/compare/v1.0.1...v1.0.2) (2025-07-21)
 
 
