@@ -40,7 +40,7 @@ Describe how you tested your changes:
 ```bash
 # Commands used to test
 uv run pytest
-uv run pytest --cov=pyperformance
+uv run pytest --cov=performance-tracker
 ```
 
 ## Documentation

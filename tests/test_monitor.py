@@ -2,7 +2,7 @@ import time
 import unittest
 from typing import Any
 
-from pyperformance import (
+from performance_tracker import (
     get_performance_stats,
     performance_monitor,
     reset_performance_stats,

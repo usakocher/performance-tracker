@@ -1,6 +1,6 @@
-# Contributing to PyPerformance
+# Contributing to Performance-Tracker
 
-Thank you for your interest in contributing to PyPerformance! This document provides guidelines and information for contributors.
+Thank you for your interest in contributing to Performance-Tracker! This document provides guidelines and information for contributors.
 
 ## Code of Conduct
 
@@ -25,8 +25,8 @@ UV provides faster dependency resolution and better virtual environment manageme
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 2. Fork and clone the repository
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 
 # 3. Install all dependencies
 uv sync --all-extras
@@ -43,8 +43,8 @@ uv run pre-commit run --all-files
 
 ```bash
 # 1. Fork and clone the repository
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 
 # 2. Create virtual environment
 python -m venv venv
@@ -267,7 +267,7 @@ When you're ready to release from develop to main:
 
 When reporting bugs, please include:
 - Python version and operating system
-- PyPerformance version
+- Performance-Tracker version
 - Minimal code example that reproduces the issue
 - Expected vs. actual behavior
 - Error messages or stack traces
@@ -276,7 +276,7 @@ When reporting bugs, please include:
 ```
 **Environment:**
 - Python version: 3.11.5
-- PyPerformance version: 0.1.0
+- Performance-Tracker version: 0.1.0
 - OS: Ubuntu 20.04
 
 **Description:**
@@ -302,7 +302,7 @@ What actually happens
 
 Before proposing new features:
 - Check existing issues to avoid duplicates
-- Consider if the feature fits PyPerformance's scope
+- Consider if the feature fits Performance-Tracker's scope
 - Think about backward compatibility
 
 **Feature Request Template:**
@@ -374,9 +374,9 @@ We use automated tools:
 
 Run before committing:
 ```bash
-uv run black pyperformance/ tests/
-uv run isort pyperformance/ tests/
-uv run flake8 pyperformance/ tests/
+uv run black performance-tracker/ tests/
+uv run isort performance-tracker/ tests/
+uv run flake8 performance-tracker/ tests/
 ```
 
 ### Documentation Style
@@ -419,8 +419,8 @@ def test_feature_name():
 
 2. **Check code quality**:
    ```bash
-   uv run flake8 pyperformance/ tests/
-   uv run black --check pyperformance/ tests/
+   uv run flake8 performance-tracker/ tests/
+   uv run black --check performance-tracker/ tests/
    ```
 
 3. **Verify commit messages** follow conventional format

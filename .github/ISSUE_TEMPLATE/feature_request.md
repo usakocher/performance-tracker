@@ -1,6 +1,6 @@
 ---
 name: Feature Request
-about: Suggest an idea for PyPerformance
+about: Suggest an idea for Performance-Tracker
 title: '[FEATURE] '
 labels: enhancement
 assignees: ''
@@ -27,7 +27,7 @@ Describe specific scenarios where this feature would be useful:
 Show how you envision this feature being used:
 
 ```python
-from pyperformance import performance_monitor
+from performance-tracker import performance_monitor
 
 # Example of how the new feature would work
 @performance_monitor(new_feature=True)
@@ -66,7 +66,7 @@ Are there any potential negative impacts or drawbacks?
 
 How important is this feature to you?
 
-- [ ] Critical - I cannot use PyPerformance effectively without this
+- [ ] Critical - I cannot use Performance-Tracker effectively without this
 - [ ] High - This would significantly improve my workflow
 - [ ] Medium - This would be a nice improvement
 - [ ] Low - This would be a minor convenience

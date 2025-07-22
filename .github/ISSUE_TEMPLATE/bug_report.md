@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Create a report to help us improve PyPerformance
+about: Create a report to help us improve Performance-Tracker
 title: '[BUG] '
 labels: bug
 assignees: ''
@@ -13,7 +13,7 @@ A clear and concise description of what the bug is.
 ## Environment
 
 - **Python version**: (e.g., 3.11.5)
-- **PyPerformance version**: (e.g., 0.1.0)
+- **Performance-Tracker version**: (e.g., 0.1.0)
 - **Operating System**: (e.g., Ubuntu 20.04, macOS 13.0, Windows 11)
 - **Package Manager**: (e.g., UV 0.1.0, pip 23.0)
 
@@ -31,7 +31,7 @@ Steps to reproduce the behavior:
 Please provide a minimal code example that reproduces the issue:
 
 ```python
-from pyperformance import performance_monitor
+from performance-tracker import performance_monitor
 
 @performance_monitor()
 def example_function():
