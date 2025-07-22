@@ -2,7 +2,7 @@
 
 ## Requirements
 
-PyPerformance requires Python 3.9 or higher and has no external dependencies.
+Performance-Tracker requires Python 3.9 or higher and has no external dependencies.
 
 ### Supported Python Versions
 - Python 3.9
@@ -21,7 +21,7 @@ PyPerformance requires Python 3.9 or higher and has no external dependencies.
 
 **Using pip (traditional):**
 ```bash
-pip install pyperformance
+pip install performance-tracker
 ```
 
 **Using UV (recommended):**
@@ -29,28 +29,28 @@ pip install pyperformance
 # Install UV first (if not already installed)
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-# Add PyPerformance to your project
-uv add pyperformance
+# Add Performance-Tracker to your project
+uv add performance-tracker
 ```
 
 **Using Poetry:**
 ```bash
-poetry add pyperformance
+poetry add performance-tracker
 ```
 
 ### Install from Source
 
 **Using UV:**
 ```bash
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 uv sync --all-extras
 ```
 
 **Using pip:**
 ```bash
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 pip install -e .
 ```
 
@@ -65,14 +65,14 @@ UV is a modern Python package manager that's much faster than pip and provides b
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 2. Clone repository
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 
 # 3. Install all dependencies (automatically creates virtual environment)
 uv sync --all-extras
 
 # 4. Verify installation
-uv run python -c "import pyperformance; print('Success!')"
+uv run python -c "import performance-tracker; print('Success!')"
 
 # 5. Run tests
 uv run pytest
@@ -85,8 +85,8 @@ uv run pre-commit install
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 
 # 2. Create virtual environment
 python -m venv venv
@@ -153,18 +153,18 @@ conda install -c conda-forge uv
 
 ### Basic Verification
 ```python
-from pyperformance import performance_monitor
-print("PyPerformance installed successfully!")
+from performance-tracker import performance_monitor
+print("Performance-Tracker installed successfully!")
 ```
 
 ### Full Development Verification
 
 **With UV:**
 ```bash
-cd python-performance-monitor
+cd performance-tracker
 uv run python -c "
-import pyperformance
-from pyperformance import performance_monitor, show_performance_report
+import performance-tracker
+from performance-tracker import performance_monitor, show_performance_report
 print('All imports successful!')
 "
 uv run pytest tests/test_monitor.py -v
@@ -172,10 +172,10 @@ uv run pytest tests/test_monitor.py -v
 
 **With pip:**
 ```bash
-cd python-performance-monitor
+cd performance-tracker
 python -c "
-import pyperformance
-from pyperformance import performance_monitor, show_performance_report
+import performance-tracker
+from performance-tracker import performance_monitor, show_performance_report
 print('All imports successful!')
 "
 python -m pytest tests/test_monitor.py -v
@@ -210,13 +210,13 @@ uv sync --all-extras
 
 ### General Issues
 
-**ImportError: No module named 'pyperformance'**
+**ImportError: No module named 'performance-tracker'**
 - Ensure you're in the correct virtual environment
-- Verify installation: `pip list | grep pyperformance` or `uv list | grep pyperformance`
+- Verify installation: `pip list | grep performance-tracker` or `uv list | grep performance-tracker`
 
 **Python version incompatibility**
 - Check Python version: `python --version`
-- PyPerformance requires Python 3.9 or higher
+- Performance-Tracker requires Python 3.9 or higher
 
 **Tests failing**
 - Ensure all development dependencies are installed
@@ -228,8 +228,8 @@ uv sync --all-extras
 If you encounter issues:
 
 1. Check the [FAQ](faq.md)
-2. Search [existing issues](https://github.com/usakocher/python-performance-monitor/issues)
-3. Create a [new issue](https://github.com/usakocher/python-performance-monitor/issues/new) with:
+2. Search [existing issues](https://github.com/usakocher/performance-tracker/issues)
+3. Create a [new issue](https://github.com/usakocher/performance-tracker/issues/new) with:
    - Python version (`python --version`)
    - Operating system
    - Installation method used

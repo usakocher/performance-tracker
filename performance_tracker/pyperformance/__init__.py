@@ -1,5 +1,5 @@
 """
-PyPerformance - A lightweight Python performance monitoring library
+Performance-Tracker - A lightweight Python performance monitoring library
 """
 
 from .monitor import (

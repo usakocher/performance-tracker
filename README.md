@@ -1,10 +1,10 @@
-# PyPerformance
+# Performance-Tracker
 
 A lightweight, developer-friendly Python performance monitoring library that provides real-time insights into function execution time, memory usage, and call patterns.
 
-## Why PyPerformance?
+## Why Performance-Tracker?
 
-Traditional Python profiling tools are either too complex for everyday use or lack the real-time feedback developers need during development. PyPerformance bridges this gap by offering:
+Traditional Python profiling tools are either too complex for everyday use or lack the real-time feedback developers need during development. Performance-Tracker bridges this gap by offering:
 
 - **Zero-configuration monitoring** - Just add a decorator
 - **Real-time feedback** - See performance data as your code runs
@@ -15,7 +15,7 @@ Traditional Python profiling tools are either too complex for everyday use or la
 ## Quick Start
 
 ```python
-from pyperformance import performance_monitor, show_performance_report
+from performance-tracker import performance_monitor, show_performance_report
 
 @performance_monitor()
 def slow_function():
@@ -37,23 +37,23 @@ show_performance_report()
 
 ## Installation
 
-### Install PyPerformance
+### Install Performance-Tracker
 
 **Using pip:**
 ```bash
-pip install pyperformance
+pip install performance-tracker
 ```
 
 **Using UV (recommended):**
 ```bash
-uv add pyperformance
+uv add performance-tracker
 ```
 
 ### Verify Installation
 
 ```python
-from pyperformance import performance_monitor
-print("PyPerformance installed successfully!")
+from performance-tracker import performance_monitor
+print("Performance-Tracker installed successfully!")
 ```
 
 ## Development Setup
@@ -67,8 +67,8 @@ UV is a modern, fast Python package manager. It's 10-100x faster than pip and pr
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # 2. Clone and setup project
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 
 # 3. Install all dependencies (creates virtual environment automatically)
 uv sync --all-extras
@@ -84,8 +84,8 @@ uv run pre-commit install
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 
 # 2. Create virtual environment
 python -m venv venv
@@ -108,7 +108,7 @@ pre-commit install
 | Task | Command |
 |------|---------|
 | Run tests | `uv run pytest` |
-| Run tests with coverage | `uv run pytest --cov=pyperformance` |
+| Run tests with coverage | `uv run pytest --cov=performance-tracker` |
 | Format code | `uv run black .` |
 | Check formatting | `uv run black --check .` |
 | Lint code | `uv run flake8` |
@@ -122,7 +122,7 @@ pre-commit install
 | Task | Command |
 |------|---------|
 | Run tests | `python -m pytest` |
-| Run tests with coverage | `python -m pytest --cov=pyperformance` |
+| Run tests with coverage | `python -m pytest --cov=performance-tracker` |
 | Format code | `black .` |
 | Check formatting | `black --check .` |
 | Lint code | `flake8` |
@@ -215,7 +215,7 @@ def full_monitoring():
 ### Report Management
 
 ```python
-from pyperformance import reset_performance_stats, get_performance_stats
+from performance-tracker import reset_performance_stats, get_performance_stats
 
 # Get raw statistics for custom processing
 stats = get_performance_stats()
@@ -240,7 +240,7 @@ Compare performance of different implementations with detailed timing statistics
 
 ## Performance Impact
 
-PyPerformance is designed to have minimal overhead:
+Performance-Tracker is designed to have minimal overhead:
 - Timing overhead: ~1-2 microseconds per function call
 - Memory tracking overhead: ~5-10 microseconds when enabled
 - No impact when monitoring is disabled
@@ -303,8 +303,8 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 ### Development Setup
 
 ```bash
-git clone https://github.com/usakocher/python-performance-monitor.git
-cd python-performance-monitor
+git clone https://github.com/usakocher/performance-tracker.git
+cd performance-tracker
 uv sync --all-extras
 uv run pytest
 ```
@@ -319,4 +319,4 @@ See [CHANGELOG.md](CHANGELOG.md) for version history and changes.
 
 ## Support
 
-If you encounter any problems or have questions, please [open an issue](https://github.com/usakocher/python-performance-monitor/issues) on GitHub.
+If you encounter any problems or have questions, please [open an issue](https://github.com/usakocher/performance-tracker/issues) on GitHub.

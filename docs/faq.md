@@ -2,11 +2,11 @@
 
 ## General Questions
 
-### What is PyPerformance?
+### What is Performance-Tracker?
 
-PyPerformance is a lightweight Python library for monitoring function performance. It provides real-time insights into execution time, memory usage, and call patterns using a simple decorator syntax.
+Performance-Tracker is a lightweight Python library for monitoring function performance. It provides real-time insights into execution time, memory usage, and call patterns using a simple decorator syntax.
 
-### How is PyPerformance different from other profiling tools?
+### How is Performance-Tracker different from other profiling tools?
 
 **Compared to cProfile:**
 - Much lower overhead (~12x faster)
@@ -26,7 +26,7 @@ PyPerformance is a lightweight Python library for monitoring function performanc
 - Thread-safe operation
 - Better integration with development workflow
 
-### Is PyPerformance suitable for production use?
+### Is Performance-Tracker suitable for production use?
 
 Yes, with proper configuration:
 - Use `verbose=False` to minimize I/O overhead
@@ -40,19 +40,19 @@ Production overhead is typically <0.1% for reasonable function execution times.
 
 ### What Python versions are supported?
 
-PyPerformance supports Python 3.9 and newer. We test on:
+Performance-Tracker supports Python 3.9 and newer. We test on:
 - Python 3.9, 3.10, 3.11, 3.12
 - Linux, macOS, and Windows
 - CPython (other implementations not tested)
 
-### Does PyPerformance have external dependencies?
+### Does Performance-Tracker have external dependencies?
 
-No. PyPerformance uses only Python's standard library, specifically:
+No. Performance-Tracker uses only Python's standard library, specifically:
 - `time.perf_counter()` for timing
 - `tracemalloc` for memory tracking
 - `threading.local` for thread safety
 
-### Why can't I install PyPerformance?
+### Why can't I install Performance-Tracker?
 
 **Common solutions:**
 1. **Check Python version:** `python --version` (must be 3.9+)
@@ -67,7 +67,7 @@ No. PyPerformance uses only Python's standard library, specifically:
 Simple - just add the decorator:
 
 ```python
-from pyperformance import performance_monitor
+from performance-tracker import performance_monitor
 
 @performance_monitor()
 def my_function():
@@ -77,7 +77,7 @@ def my_function():
 
 ### Can I monitor class methods?
 
-Yes, PyPerformance works with any callable:
+Yes, Performance-Tracker works with any callable:
 
 ```python
 class MyClass:
@@ -98,7 +98,7 @@ class MyClass:
 
 ### How do I monitor async functions?
 
-Currently, PyPerformance doesn't have special async support, but it works with async functions:
+Currently, Performance-Tracker doesn't have special async support, but it works with async functions:
 
 ```python
 import asyncio
@@ -140,7 +140,7 @@ def quiet_function():
 quiet_function()
 
 # Get statistics
-from pyperformance import get_performance_stats
+from performance-tracker import get_performance_stats
 stats = get_performance_stats()
 print(stats['quiet_function'])
 ```
@@ -149,7 +149,7 @@ print(stats['quiet_function'])
 
 ### Why does my function show 0.00MB used but high peak memory?
 
-This is normal Python behavior. PyPerformance distinguishes between:
+This is normal Python behavior. Performance-Tracker distinguishes between:
 - **Peak memory:** Maximum memory during execution
 - **Used memory:** Net memory still allocated when function ends
 
@@ -206,9 +206,9 @@ No. Best practices:
 - Focus on functions you're optimizing
 - Use selective monitoring in production
 
-### Does PyPerformance affect my function's return value?
+### Does Performance-Tracker affect my function's return value?
 
-No. PyPerformance preserves your function's original behavior:
+No. Performance-Tracker preserves your function's original behavior:
 - Return values pass through unchanged
 - Exceptions are re-raised normally
 - Function signature remains the same
@@ -240,7 +240,7 @@ def my_function():
 
 ### How does recursion tracking work?
 
-PyPerformance distinguishes between logical calls (your code) and recursive calls:
+Performance-Tracker distinguishes between logical calls (your code) and recursive calls:
 
 ```python
 @performance_monitor(track_recursion=True)
@@ -254,9 +254,9 @@ factorial(5)  # Shows: "called 1 time, recursive calls: 4"
 
 Without recursion tracking, it would show "called 5 times".
 
-### Is PyPerformance thread-safe?
+### Is Performance-Tracker thread-safe?
 
-Yes. PyPerformance uses:
+Yes. Performance-Tracker uses:
 - Thread-safe global statistics storage
 - Thread-local storage for recursion tracking
 - No shared mutable state between threads
@@ -279,7 +279,7 @@ def threaded_function(thread_id):
 
 ### What happens if my monitored function raises an exception?
 
-PyPerformance handles exceptions gracefully:
+Performance-Tracker handles exceptions gracefully:
 - Exception is re-raised normally (your error handling still works)
 - Function call is counted as failed
 - Execution time is still measured
@@ -289,8 +289,8 @@ PyPerformance handles exceptions gracefully:
 
 Common issues:
 1. **Wrong Python version:** Check `python --version`
-2. **Virtual environment:** Make sure PyPerformance is installed in active environment
-3. **Module name:** Import from `pyperformance`, not `python-performance-monitor`
+2. **Virtual environment:** Make sure Performance-Tracker is installed in active environment
+3. **Module name:** Import from `performance-tracker`, not `performance-tracker`
 
 ### My statistics seem wrong. What should I check?
 
@@ -301,13 +301,13 @@ Common issues:
 
 ## Integration and Compatibility
 
-### Can I use PyPerformance with Flask/Django?
+### Can I use Performance-Tracker with Flask/Django?
 
 Yes! Example Flask integration:
 
 ```python
 from flask import Flask
-from pyperformance import performance_monitor
+from performance-tracker import performance_monitor
 
 app = Flask(__name__)
 
@@ -319,7 +319,7 @@ def get_data():
 
 See `examples/web_app_example.py` for complete examples.
 
-### Does PyPerformance work with pytest?
+### Does Performance-Tracker work with pytest?
 
 Yes, great for performance testing:
 
@@ -342,7 +342,7 @@ Not built-in, but you can create custom reporters:
 
 ```python
 import logging
-from pyperformance import get_performance_stats
+from performance-tracker import get_performance_stats
 
 def log_performance_stats():
     stats = get_performance_stats()
@@ -366,7 +366,7 @@ Not built-in, but easy to implement:
 
 ```python
 import json
-from pyperformance import get_performance_stats
+from performance-tracker import get_performance_stats
 
 # Save to JSON
 stats = get_performance_stats()
@@ -420,7 +420,7 @@ Built-in merging is planned for a future release.
 
 ### How can I request a feature?
 
-1. Check existing [GitHub issues](https://github.com/usakocher/python-performance-monitor/issues)
+1. Check existing [GitHub issues](https://github.com/usakocher/performance-tracker/issues)
 2. Open a new issue with the "feature request" template
 3. Describe your use case and proposed solution
 4. Participate in discussion and design
@@ -437,12 +437,12 @@ Contributions welcome from developers of all experience levels.
 
 ## Troubleshooting
 
-### PyPerformance isn't showing any output
+### Performance-Tracker isn't showing any output
 
 Check:
 1. **Verbose mode:** Use `verbose=True` (default)
 2. **Function calls:** Make sure you're actually calling the decorated function
-3. **Import:** Verify `from pyperformance import performance_monitor`
+3. **Import:** Verify `from performance-tracker import performance_monitor`
 
 ### Statistics are accumulating unexpectedly
 
@@ -467,7 +467,7 @@ Check:
 
 ### Where can I get support?
 
-1. **Documentation:** Start with [docs/](https://github.com/usakocher/python-performance-monitor/tree/main/docs)
+1. **Documentation:** Start with [docs/](https://github.com/usakocher/performance-tracker/tree/main/docs)
 2. **GitHub Issues:** Bug reports and feature requests
 3. **GitHub Discussions:** Questions and community help
 4. **Email:** Direct contact for complex issues

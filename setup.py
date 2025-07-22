@@ -4,13 +4,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="pyperformance",
+    name="performance-tracker",
     version="1.0.0",
     author="Adam Kocher",
     description="A lightweight Python performance monitoring library",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/usakocher/python-performance-monitor",
+    url="https://github.com/usakocher/performance-tracker",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -40,12 +40,10 @@ setup(
     },
     keywords="performance monitoring profiling decorator timing memory",
     project_urls={
-        "Bug Reports": (
-            "https://github.com/usakocher/python-performance-monitor/issues"
-        ),
-        "Source": "https://github.com/usakocher/python-performance-monitor",
+        "Bug Reports": ("https://github.com/usakocher/performance-tracker/issues"),
+        "Source": "https://github.com/usakocher/performance-tracker",
         "Documentation": (
-            "https://github.com/usakocher/python-performance-monitor/blob/main/docs/"
+            "https://github.com/usakocher/performance-tracker/blob/main/docs/"
         ),
     },
 )

@@ -84,7 +84,7 @@ def my_function():
 ### Accessing Raw Statistics
 
 ```python
-from pyperformance import get_performance_stats
+from performance-tracker import get_performance_stats
 
 # Get all collected data
 stats = get_performance_stats()
@@ -98,7 +98,7 @@ print(f"Average time: {function_stats['total_time'] / len(function_stats['times'
 ### Resetting Statistics
 
 ```python
-from pyperformance import reset_performance_stats
+from performance-tracker import reset_performance_stats
 
 # Clear all collected data
 reset_performance_stats()
@@ -112,7 +112,7 @@ reset_performance_stats()
 ### Custom Report Generation
 
 ```python
-from pyperformance import get_performance_stats
+from performance-tracker import get_performance_stats
 
 def generate_custom_report():
     stats = get_performance_stats()
@@ -138,7 +138,7 @@ def generate_custom_report():
 
 ```python
 from flask import Flask
-from pyperformance import performance_monitor
+from performance-tracker import performance_monitor
 
 app = Flask(__name__)
 
@@ -151,7 +151,7 @@ def get_data():
 # Monitor performance via separate endpoint
 @app.route('/admin/performance')
 def performance_dashboard():
-    from pyperformance import show_performance_report
+    from performance-tracker import show_performance_report
     import io, sys
 
     old_stdout = sys.stdout
@@ -166,7 +166,7 @@ def performance_dashboard():
 
 ```python
 import pytest
-from pyperformance import performance_monitor, reset_performance_stats, get_performance_stats
+from performance-tracker import performance_monitor, reset_performance_stats, get_performance_stats
 
 class TestPerformance:
     def setup_method(self):
@@ -191,7 +191,7 @@ class TestPerformance:
 ### Batch Processing
 
 ```python
-from pyperformance import performance_monitor, show_performance_report
+from performance-tracker import performance_monitor, show_performance_report
 
 @performance_monitor(track_memory=True)
 def process_batch(items):
@@ -214,7 +214,7 @@ show_performance_report()
 
 ### Monitoring Overhead
 
-PyPerformance is designed to be lightweight, but monitoring does add some overhead:
+Performance-Tracker is designed to be lightweight, but monitoring does add some overhead:
 
 - **Timing only**: ~1-2 microseconds per call
 - **With memory tracking**: ~5-10 microseconds per call
@@ -245,11 +245,11 @@ def add_numbers(a, b):
 
 ## Thread Safety
 
-PyPerformance uses thread-local storage for recursion tracking, making it safe for multi-threaded applications:
+Performance-Tracker uses thread-local storage for recursion tracking, making it safe for multi-threaded applications:
 
 ```python
 import threading
-from pyperformance import performance_monitor
+from performance-tracker import performance_monitor
 
 @performance_monitor()
 def threaded_function(thread_id):

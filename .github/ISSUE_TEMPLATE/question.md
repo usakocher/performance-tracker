@@ -1,6 +1,6 @@
 ---
 name: Question
-about: Ask a question about PyPerformance usage
+about: Ask a question about Performance-Tracker usage
 title: '[QUESTION] '
 labels: question
 assignees: ''
@@ -8,7 +8,7 @@ assignees: ''
 
 ## Question
 
-What would you like to know about PyPerformance?
+What would you like to know about Performance-Tracker?
 
 ## Context
 
@@ -23,7 +23,7 @@ Provide context about what you're trying to accomplish:
 If applicable, provide code that shows what you're trying to do:
 
 ```python
-from pyperformance import performance_monitor
+from performance-tracker import performance_monitor
 
 # Your current code or what you're trying to achieve
 ```
@@ -31,7 +31,7 @@ from pyperformance import performance_monitor
 ## Environment
 
 - **Python version**: (e.g., 3.11.5)
-- **PyPerformance version**: (e.g., 0.1.0)
+- **Performance-Tracker version**: (e.g., 0.1.0)
 - **Operating System**: (e.g., Ubuntu 20.04, macOS 13.0, Windows 11)
 
 ## What You've Tried

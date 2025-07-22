@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pyperformance"
-version = "1.0.0"
+name = "performance-tracker"  # Changed from "performance-tracker"
+version = "1.0.1"
 description = "A lightweight Python performance monitoring library"
 readme = "README.md"
 license = {text = "MIT"}
@@ -39,10 +39,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/usakocher/python-performance-monitor"
-Documentation = "https://github.com/usakocher/python-performance-monitor/blob/main/docs/"
-Repository = "https://github.com/usakocher/python-performance-monitor"
-"Bug Reports" = "https://github.com/usakocher/python-performance-monitor/issues"
+Homepage = "https://github.com/usakocher/performance-tracker"
+Documentation = "https://github.com/usakocher/performance-tracker/blob/main/docs/"
+Repository = "https://github.com/usakocher/performance-tracker"
+"Bug Reports" = "https://github.com/usakocher/performance-tracker/issues"
 
 [tool.uv]
 dev-dependencies = [
