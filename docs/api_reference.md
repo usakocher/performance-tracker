@@ -152,7 +152,7 @@ time_std_dev = statistics.stdev(stats['times'])
 
 ## Error Handling
 
-PyPerformance handles function exceptions gracefully:
+Performance-Tracker handles function exceptions gracefully:
 
 ```python
 @performance_monitor()
@@ -172,21 +172,21 @@ except ValueError:
 
 ## Thread Safety
 
-All PyPerformance functions are thread-safe:
+All Performance-Tracker functions are thread-safe:
 - Global statistics use thread-safe data structures
 - Recursion tracking uses thread-local storage
 - Multiple threads can monitor functions simultaneously
 
 ## Memory Management
 
-PyPerformance manages memory efficiently:
+Performance-Tracker manages memory efficiently:
 - Statistics stored in memory only (no disk I/O)
 - Memory usage scales with number of monitored functions
 - Use `reset_performance_stats()` to free memory in long-running applications
 
 ## Version Compatibility
 
-| PyPerformance Version | Python Versions | Features |
+| Performance-Tracker Version | Python Versions | Features |
 |----------------------|-----------------|----------|
 | 0.1.0+ | 3.9+ | All current features |
 
@@ -201,7 +201,7 @@ PyPerformance manages memory efficiently:
 
 ### Basic Usage
 ```python
-from pyperformance import performance_monitor
+from performance-tracker import performance_monitor
 
 @performance_monitor()
 def example_function():
@@ -225,7 +225,7 @@ def advanced_function():
 
 ### Custom Analysis
 ```python
-from pyperformance import get_performance_stats
+from performance-tracker import get_performance_stats
 
 def analyze_performance():
     stats = get_performance_stats()

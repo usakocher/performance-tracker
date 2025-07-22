@@ -1,5 +1,5 @@
 """
-Basic usage examples for PyPerformance
+Basic usage examples for Performance-Tracker
 
 This file demonstrates the core functionality of the performance monitor
 in simple, easy-to-understand scenarios.
@@ -8,7 +8,7 @@ in simple, easy-to-understand scenarios.
 import random
 import time
 
-from pyperformance import (
+from performance_tracker import (
     performance_monitor,
     reset_performance_stats,
     show_performance_report,
@@ -63,7 +63,7 @@ def background_task():
 
 def main():
     """Run all examples and show results"""
-    print("PyPerformance Basic Usage Examples")
+    print("Performance-Tracker Basic Usage Examples")
     print("=" * 50)
 
     # Reset any previous data

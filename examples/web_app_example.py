@@ -1,7 +1,7 @@
 """
 Web application performance monitoring example
 
-This demonstrates how to use PyPerformance in a Flask web application
+This demonstrates how to use Performance-Tracker in a Flask web application
 to monitor API endpoint performance.
 """
 
@@ -14,8 +14,8 @@ except ImportError:
 import random
 import time
 
-from pyperformance import get_performance_stats as get_stats
-from pyperformance import performance_monitor, show_performance_report
+from performance_tracker import get_performance_stats as get_stats
+from performance_tracker import performance_monitor, show_performance_report
 
 app = Flask(__name__)
 
@@ -107,7 +107,7 @@ def performance_report():
 
 
 if __name__ == "__main__":
-    print("Starting Flask app with PyPerformance monitoring...")
+    print("Starting Flask app with Performance-Tracker monitoring...")
     print("Visit these endpoints:")
     print("  http://localhost:5000/users/1")
     print("  http://localhost:5000/report")

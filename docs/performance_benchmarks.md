@@ -1,10 +1,10 @@
 # Performance Benchmarks
 
-This document provides detailed performance analysis of PyPerformance itself, including overhead measurements and comparisons with other profiling tools.
+This document provides detailed performance analysis of Performance-Tracker itself, including overhead measurements and comparisons with other profiling tools.
 
 ## Benchmark Summary
 
-PyPerformance is designed to have minimal impact on application performance:
+Performance-Tracker is designed to have minimal impact on application performance:
 
 | Configuration | Overhead per Call | Use Case |
 |--------------|------------------|----------|
@@ -24,7 +24,7 @@ PyPerformance is designed to have minimal impact on application performance:
 
 **Software:**
 - Python 3.9.7
-- PyPerformance 0.1.0
+- Performance-Tracker 0.1.0
 - Ubuntu 20.04 LTS
 
 ### Benchmark Functions
@@ -132,7 +132,7 @@ Output overhead: 0.0144ms (14.4μs)
 ```python
 import cProfile
 
-# PyPerformance
+# Performance-Tracker
 @performance_monitor(verbose=False)
 def test_function():
     return sum(range(1000))
@@ -146,7 +146,7 @@ pr.disable()
 
 **Results (1000 calls):**
 ```
-PyPerformance:  1.2μs overhead per call
+Performance-Tracker:  1.2μs overhead per call
 cProfile:       15.3μs overhead per call
 Advantage:      12.8x faster
 ```
@@ -155,7 +155,7 @@ Advantage:      12.8x faster
 
 py-spy is a sampling profiler that runs externally, so direct comparison is difficult. However:
 
-**PyPerformance advantages:**
+**Performance-Tracker advantages:**
 - No external process required
 - Per-function granularity
 - Real-time feedback
@@ -178,7 +178,7 @@ def memory_test():
 
 **Results:**
 ```
-PyPerformance memory:  8.0μs overhead
+Performance-Tracker memory:  8.0μs overhead
 memory_profiler:       45.2μs overhead
 Advantage:             5.7x faster
 ```
@@ -190,15 +190,15 @@ Advantage:             5.7x faster
 **Impact on different call patterns:**
 
 **High-frequency functions (>1000 calls/second):**
-- PyPerformance: Suitable with `verbose=False`
+- Performance-Tracker: Suitable with `verbose=False`
 - Overhead: <1% for functions >100μs
 
 **Medium-frequency functions (100-1000 calls/second):**
-- PyPerformance: Excellent fit
+- Performance-Tracker: Excellent fit
 - Overhead: <0.1% for typical functions
 
 **Low-frequency functions (<100 calls/second):**
-- PyPerformance: Zero noticeable impact
+- Performance-Tracker: Zero noticeable impact
 - Use all features including verbose output
 
 ### Memory Usage Scaling
@@ -322,10 +322,10 @@ show_performance_report()  # Too expensive
 ```python
 import time
 import statistics
-from pyperformance import performance_monitor, reset_performance_stats
+from performance-tracker import performance_monitor, reset_performance_stats
 
 def benchmark_overhead(func, iterations=10000):
-    """Measure PyPerformance overhead"""
+    """Measure Performance-Tracker overhead"""
 
     # Baseline measurement
     times = []
@@ -371,4 +371,4 @@ If you run benchmarks on different hardware or Python versions, please contribut
 - Operating system
 - Benchmark results using the script above
 
-This helps us understand PyPerformance performance across different environments.
+This helps us understand Performance-Tracker performance across different environments.

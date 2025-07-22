@@ -1,13 +1,13 @@
 """
-Memory analysis examples using PyPerformance
+Memory analysis examples using Performance-Tracker
 
-This demonstrates how to use PyPerformance to detect and analyze
+This demonstrates how to use Performance-Tracker to detect and analyze
 different types of memory usage patterns.
 """
 
 import gc
 
-from pyperformance import (
+from performance_tracker import (
     performance_monitor,
     reset_performance_stats,
     show_performance_report,
@@ -69,7 +69,7 @@ def recursive_memory_function(depth, data_size=1000):
 
 def analyze_memory_patterns():
     """Run different functions and analyze their memory patterns"""
-    print("Memory Analysis with PyPerformance")
+    print("Memory Analysis with Performance-Tracker")
     print("=" * 50)
 
     reset_performance_stats()

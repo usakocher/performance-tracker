@@ -1,30 +1,30 @@
-## [1.0.2](https://github.com/usakocher/python-performance-monitor/compare/v1.0.1...v1.0.2) (2025-07-21)
+## [1.0.2](https://github.com/usakocher/performance-tracker/compare/v1.0.1...v1.0.2) (2025-07-21)
 
 
 ### Bug Fixes
 
-* use personal access token for semantic-release permissions ([#8](https://github.com/usakocher/python-performance-monitor/issues/8)) ([3429fd0](https://github.com/usakocher/python-performance-monitor/commit/3429fd019f24f4c80b7f73944b82edd24c902e4e))
+* use personal access token for semantic-release permissions ([#8](https://github.com/usakocher/performance-tracker/issues/8)) ([3429fd0](https://github.com/usakocher/performance-tracker/commit/3429fd019f24f4c80b7f73944b82edd24c902e4e))
 
-## [1.0.1](https://github.com/usakocher/python-performance-monitor/compare/v1.0.0...v1.0.1) (2025-07-21)
+## [1.0.1](https://github.com/usakocher/performance-tracker/compare/v1.0.0...v1.0.1) (2025-07-21)
 
 
 ### Bug Fixes
 
-* replace placeholder URLs with actual repository information ([#6](https://github.com/usakocher/python-performance-monitor/issues/6)) ([7f7517e](https://github.com/usakocher/python-performance-monitor/commit/7f7517ef1618b0a98fa40117be74050871acea71))
+* replace placeholder URLs with actual repository information ([#6](https://github.com/usakocher/performance-tracker/issues/6)) ([7f7517e](https://github.com/usakocher/performance-tracker/commit/7f7517ef1618b0a98fa40117be74050871acea71))
 
 # 1.0.0 (2025-07-18)
 
 
 ### Bug Fixes
 
-* remove npm plugin from semantic-release config ([79c7c20](https://github.com/usakocher/python-performance-monitor/commit/79c7c20934987a442ed754993e81ed4ee6feb3c6))
-* replace broken wagoid action with reliable custom workflow ([5ebb5c9](https://github.com/usakocher/python-performance-monitor/commit/5ebb5c9df56f24c5171d63727d62cd1244fed3e9))
-* replace broken wagoid action with working custom workflow ([e7479ab](https://github.com/usakocher/python-performance-monitor/commit/e7479abcc7236d37f61eff737ebb66c1fac7474b))
+* remove npm plugin from semantic-release config ([79c7c20](https://github.com/usakocher/performance-tracker/commit/79c7c20934987a442ed754993e81ed4ee6feb3c6))
+* replace broken wagoid action with reliable custom workflow ([5ebb5c9](https://github.com/usakocher/performance-tracker/commit/5ebb5c9df56f24c5171d63727d62cd1244fed3e9))
+* replace broken wagoid action with working custom workflow ([e7479ab](https://github.com/usakocher/performance-tracker/commit/e7479abcc7236d37f61eff737ebb66c1fac7474b))
 
 
 ### Features
 
-* implement semantic versioning and automated releases ([fb31758](https://github.com/usakocher/python-performance-monitor/commit/fb31758be96dd82780344e94997ec4ff45ed6dfe))
+* implement semantic versioning and automated releases ([fb31758](https://github.com/usakocher/performance-tracker/commit/fb31758be96dd82780344e94997ec4ff45ed6dfe))
 
 # Changelog
 
@@ -64,7 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - flake8 for linting
   - Built-in hooks for file quality (trailing whitespace, YAML syntax, etc.)
 - .flake8 configuration file for consistent linting rules
-- Initial release of PyPerformance
+- Initial release of Performance-Tracker
 - Function timing with microsecond precision using perf_counter()
 - Memory usage monitoring with peak and net allocation tracking
 - Recursion-aware function monitoring
